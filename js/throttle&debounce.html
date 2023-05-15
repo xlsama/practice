@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <br />
+    default
+    <p id="default-text"></p>
+    <br />
+    debounce
+    <p id="debounce-text"></p>
+
+    <button id="button">send</button>
+
+    <script>
+      const input = document.querySelector('#input')
+      const defaultText = document.querySelector('#default-text')
+      const debounceText = document.querySelector('#debounce-text')
+
+      input.addEventListener('input', e => {
+        defaultText.textContent = e.target.value
+      })
+
+      // debounce防抖
+      input.addEventListener(
+        'input',
+        debounce(e => {
+          debounceText.textContent = e.target.value
+        }, 1000)
+      )
+
+      function debounce(fn, delay) {
+        console.log('debounce')
+        const _this = this
+        let timer
+
+        return function (...args) {
+          clearTimeout(timer)
+
+          timer = setTimeout(() => {
+            fn.apply(_this, args)
+          }, delay)
+        }
+      }
+
+      /////////////////////////////
+      const button = document.querySelector('#button')
+
+      button.addEventListener(
+        'click',
+        throttle(e => {
+          console.log('click')
+        }, 1000)
+      )
+
+      // 节流
+      function throttle(fn, threshold) {
+        const _this = this
+        let last
+
+        return function (...args) {
+          if (!last || Date.now() - last >= threshold) {
+            fn.apply(_this, args)
+            last = Date.now()
+          }
+        }
+      }
+
+      function throttle2(fn, threshold) {
+        const _this = this
+        let isClick = true
+        let timer
+
+        return function (...args) {
+          if (isClick) {
+            fn.apply(_this, args)
+            isClick = false
+
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+              isClick = true
+            }, threshold)
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
