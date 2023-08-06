@@ -19,6 +19,7 @@ bool list_insert(SqList &L, int pos, ElemType element) {
   }
   L.data[pos - 1] = element;
   L.len++;
+
   return true;
 }
 
