@@ -94,6 +94,8 @@ int main() {
   reverse(L2);
   print_list(L2);
   printf("-------------------------\n");
+  merge(L, L2);
+  free(L2);
 
   return 0;
 }
