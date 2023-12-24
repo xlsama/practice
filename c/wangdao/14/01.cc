@@ -1,8 +1,10 @@
 #include "01.h"
 #include <cstdio>
+#include <ratio>
 #include <stdio.h>
 #include <stdlib.h>
 
+// 深度优先遍历
 void pre_order(BiTree tree) {
   if (tree == NULL)
     return;

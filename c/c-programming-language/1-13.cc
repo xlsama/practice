@@ -1,3 +1,12 @@
 #include <stdio.h>
 
-int main() { return 0; }
+int main() {
+  int c, n;
+
+  while ((c = getchar()) != EOF) {
+    n++;
+    putchar(c);
+  }
+
+  return 0;
+}
