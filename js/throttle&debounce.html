@@ -36,7 +36,7 @@
         'input',
         debounce(e => {
           debounceText.textContent = e.target.value
-        }, 1000)
+        }, 1000),
       )
 
       function debounce(fn, delay) {
@@ -60,7 +60,7 @@
         'click',
         throttle(e => {
           console.log('click')
-        }, 1000)
+        }, 1000),
       )
 
       // 节流
