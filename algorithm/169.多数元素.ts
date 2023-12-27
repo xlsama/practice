@@ -6,15 +6,15 @@
 
 // @lc code=start
 function majorityElement(nums: number[]): number {
-  let count = 0;
-  let res = 0;
+  let count = 0
+  let res = 0
   for (let i = 0; i < nums.length; i++) {
     if (count === 0) {
-      res = nums[i];
+      res = nums[i]
     }
-    count += res === nums[i] ? 1 : -1;
+    count += res === nums[i] ? 1 : -1
   }
-  return res;
+  return res
 }
 
 // @lc code=end

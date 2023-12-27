@@ -25,7 +25,9 @@ const addSearchParams = (
 
   if (search) {
     searchParams = new URLSearchParams(search)
-    new URLSearchParams(formatParams).forEach((value, key) => searchParams.append(key, value))
+    new URLSearchParams(formatParams).forEach((value, key) =>
+      searchParams.append(key, value),
+    )
   } else {
     searchParams = new URLSearchParams(formatParams)
   }
@@ -39,5 +41,12 @@ const addSearchParams = (
   return str
 }
 
-console.log(addSearchParams('baidu.com?id=1', { name: 'lee', age: 20, foo: undefined, bar: null }))
+console.log(
+  addSearchParams('baidu.com?id=1', {
+    name: 'lee',
+    age: 20,
+    foo: undefined,
+    bar: null,
+  }),
+)
 console.log(addSearchParams('baidu.com', { name: 'lee', age: 20 }))
