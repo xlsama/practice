@@ -2,3 +2,6 @@
 **/*.out
 **/target
 **/build
+**/debug
+*
+!*.*
