@@ -3,5 +3,6 @@
 **/target
 **/build
 **/debug
+**/*.lock
 
 **/main
