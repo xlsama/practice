@@ -1,5 +1,5 @@
 fn main() {
-    let str = String::from("吃饭了吗？");
+    let str: String = String::from("吃饭了吗？");
     println!("{}", str.len());
 
     for s in str.bytes() {
